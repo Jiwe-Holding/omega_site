@@ -1,82 +1,91 @@
 import React from 'react';
-import { BarChart3, Database, Users, Target } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+
+const serviceItems = [
+  {
+    id: 1,
+    title: 'Research product NPS+',
+    description: 'Measuring and increasing customer loyalty in the B2B segment',
+  },
+  {
+    id: 2,
+    title: 'Mystery-shopping and Mystery-calling',
+    description: 'Measuring the quality of customer experience',
+  },
+  {
+    id: 3,
+    title: 'B2B-panel',
+    description: 'Learn from the business community and improve your product or service',
+  },
+  {
+    id: 4,
+    title: 'Online Survey',
+    description: 'OMEGA Research Panel',
+  },
+  {
+    id: 5,
+    title: 'Census',
+    description:
+      'Procedure of systematically calculating, acquiring and recording information about the members of a given population. Full range service of population or retail census.',
+  },
+  {
+    id: 6,
+    title: 'Conjoint Analysis',
+    description: 'The most popular and precise statistical method for studying the elasticity of demand',
+  },
+];
 
 const Services = () => {
-  const services = [
-    {
-      icon: BarChart3,
-      title: "Market Research",
-      description: "In-depth analysis to understand your market, competitors, and identify growth opportunities.",
-      features: ["Competitive analysis", "Customer segmentation", "Market trends"]
-    },
-    {
-      icon: Database,
-      title: "Data Science & Analytics",
-      description: "Leverage the power of your data to make informed decisions and optimize performance.",
-      features: ["Machine learning", "Forecasting", "Dashboards"]
-    },
-    {
-      icon: Users,
-      title: "Strategic Consulting",
-      description: "Tailored guidance to define and implement your digital transformation strategy.",
-      features: ["Digital roadmap", "Change management", "Team training"]
-    },
-    {
-      icon: Target,
-      title: "ROI Optimization",
-      description: "Maximize your return on investment with our proven optimization methods.",
-      features: ["KPI tracking", "A/B testing", "Performance audit"]
-    }
-  ];
-
   return (
-    <section id="services" className="py-20 bg-gray-800">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Our Expertise, Driving Your Growth
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
+            Our Expertise
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Tailored B2B Research Services
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Discover how our services can transform your business and accelerate success.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We specialize in data-driven methods to measure, analyze, and improve customer and business experience.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {serviceItems.map((item) => (
             <div
-              key={index}
-              className="group bg-gray-900 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-700"
+              key={item.id}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
             >
-              <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                <service.icon className="w-8 h-8 text-blue-400 group-hover:text-white transition-colors" />
+              <div className="text-4xl font-bold text-blue-500 mb-4">{item.id}</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">{item.description}</p>
+              <div className="mt-auto pt-4 border-t border-gray-100">
+                <a
+                  href="#contact"
+                  className="text-blue-600 font-semibold hover:text-blue-700 transition-colors inline-flex items-center"
+                >
+                  Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
               </div>
-              
-              <h3 className="text-xl font-bold text-white mb-3">
-                {service.title}
-              </h3>
-              
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-
-              <ul className="space-y-2">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-400">
-                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {/* CTA */}
+        <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 lg:p-12 text-center">
+          <h3 className="text-3xl font-bold text-white mb-4">
+            Discover What We Can Do For You
+          </h3>
+          <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+            From measurement to implementation, OMEGA delivers excellence in every phase of your research journey.
+          </p>
           <a
             href="#contact"
-            className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Let's talk about your project
+            Start Your Project
           </a>
         </div>
       </div>
