@@ -16,9 +16,9 @@ const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
 
   // Configuration EmailJS - À remplacer par tes vraies clés
-  const EMAILJS_SERVICE_ID = import.meta.env.REACT_APP_EMAILJS_SERVICE_ID;
-  const EMAILJS_TEMPLATE_ID = import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-  const EMAILJS_PUBLIC_KEY = import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+  const EMAILJS_SERVICE_ID = "service_f8dnr5e";
+  const EMAILJS_TEMPLATE_ID = "template_dw9bw7q";
+  const EMAILJS_PUBLIC_KEY = "Nf7GhXvd85BwYq4dB";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
