@@ -26,6 +26,7 @@ const Contact = () => {
     setError('');
 
     try {
+      //
       // Simulation d'EmailJS (remplace par le vrai code)
       if (form.current) {
         await emailjs.sendForm(
