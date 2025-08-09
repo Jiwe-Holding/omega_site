@@ -15,7 +15,7 @@ const Contact = () => {
   const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
 
-  // Configuration EmailJS - À remplacer par tes vraies clés
+  // EmailJS Configuration - Replace with your real keys
   const EMAILJS_SERVICE_ID = "service_f8dnr5e";
   const EMAILJS_TEMPLATE_ID = "template_dw9bw7q";
   const EMAILJS_PUBLIC_KEY = "Nf7GhXvd85BwYq4dB";
@@ -27,7 +27,7 @@ const Contact = () => {
 
     try {
       //
-      // Simulation d'EmailJS (remplace par le vrai code)
+      // EmailJS Simulation (replace with real code)
       if (form.current) {
         await emailjs.sendForm(
           EMAILJS_SERVICE_ID, 
@@ -39,7 +39,7 @@ const Contact = () => {
         throw new Error('Form reference is null.');
       }
       
-      // Simulation pour la démo
+      // Demo simulation
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       setIsSubmitted(true);
@@ -53,8 +53,8 @@ const Contact = () => {
       
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
-      console.error('Erreur lors de l\'envoi:', error);
-      setError('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
+      console.error('Error sending message:', error);
+      setError('An error occurred while sending. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -115,8 +115,8 @@ const Contact = () => {
               {isSubmitted && (
                 <div className="text-center py-12">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Message envoyé avec succès !</h4>
-                  <p className="text-gray-600">Nous vous répondrons dans les 24 heures.</p>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Message sent successfully!</h4>
+                  <p className="text-gray-600">We will respond within 24 hours.</p>
                 </div>
               )}
 
@@ -134,7 +134,7 @@ const Contact = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nom complet *
+                        Full Name *
                       </label>
                       <input 
                         type="text" 
@@ -144,13 +144,13 @@ const Contact = () => {
                         value={formData.name} 
                         onChange={handleChange} 
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-                        placeholder="Votre nom complet" 
+                        placeholder="Your full name" 
                         disabled={isLoading}
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Adresse email *
+                        Email Address *
                       </label>
                       <input 
                         type="email" 
@@ -160,7 +160,7 @@ const Contact = () => {
                         value={formData.email} 
                         onChange={handleChange} 
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-                        placeholder="votre@email.com" 
+                        placeholder="your@email.com" 
                         disabled={isLoading}
                       />
                     </div>
@@ -168,7 +168,7 @@ const Contact = () => {
 
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Entreprise
+                      Company
                     </label>
                     <input 
                       type="text" 
@@ -177,14 +177,14 @@ const Contact = () => {
                       value={formData.company} 
                       onChange={handleChange} 
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-                      placeholder="Nom de votre entreprise" 
+                      placeholder="Your company name" 
                       disabled={isLoading}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                      Type de projet
+                      Project Type
                     </label>
                     <select 
                       id="subject" 
@@ -194,12 +194,12 @@ const Contact = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       disabled={isLoading}
                     >
-                      <option value="">Sélectionnez un service</option>
-                      <option value="research-analytics">Analyse de recherche</option>
-                      <option value="strategic-consulting">Conseil stratégique</option>
-                      <option value="custom-solutions">Solutions personnalisées</option>
-                      <option value="innovation-consulting">Conseil en innovation</option>
-                      <option value="other">Autre</option>
+                      <option value="">Select a service</option>
+                      <option value="research-analytics">Research Analytics</option>
+                      <option value="strategic-consulting">Strategic Consulting</option>
+                      <option value="custom-solutions">Custom Solutions</option>
+                      <option value="innovation-consulting">Innovation Consulting</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
 
@@ -215,7 +215,7 @@ const Contact = () => {
                       value={formData.message} 
                       onChange={handleChange} 
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" 
-                      placeholder="Parlez-nous de votre projet et comment nous pouvons vous aider..." 
+                      placeholder="Tell us about your project and how we can help you..." 
                       disabled={isLoading}
                     />
                   </div>
@@ -228,12 +228,12 @@ const Contact = () => {
                     {isLoading ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Envoi en cours...
+                        Sending...
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5 mr-2" />
-                        Envoyer le message
+                        Send Message
                       </>
                     )}
                   </button>
@@ -242,7 +242,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Contactez-nous</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Us</h3>
               <div className="space-y-8 mb-12">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start space-x-4">
@@ -258,15 +258,15 @@ const Contact = () => {
               </div>
 
               <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8">
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Heures d'ouverture</h4>
+                <h4 className="text-xl font-semibold text-gray-900 mb-4">Opening Hours</h4>
                 <div className="space-y-2 text-gray-600">
-                  <div className="flex justify-between"><span>Lundi - Vendredi</span><span>9h00 - 18h00</span></div>
-                  <div className="flex justify-between"><span>Samedi</span><span>10h00 - 14h00</span></div>
-                  <div className="flex justify-between"><span>Dimanche</span><span>Fermé</span></div>
+                  <div className="flex justify-between"><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></div>
+                  <div className="flex justify-between"><span>Saturday</span><span>10:00 AM - 2:00 PM</span></div>
+                  <div className="flex justify-between"><span>Sunday</span><span>Closed</span></div>
                 </div>
                 <div className="mt-6 pt-6 border-t border-blue-200">
                   <p className="text-sm text-gray-600">
-                    <strong>Support d'urgence :</strong> Pour les questions urgentes, appelez notre ligne 24h/24 au +243 99 699 8277
+                    <strong>Emergency Support:</strong> For urgent questions, call our 24/7 line at +243 99 699 8277
                   </p>
                 </div>
               </div>
@@ -280,10 +280,10 @@ const Contact = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center mb-2 justify-center">
               <div className="w-16 h-0.5 bg-blue-600"></div>
-              <span className="text-sm font-semibold text-blue-600 uppercase mx-3">Succursales</span>
+              <span className="text-sm font-semibold text-blue-600 uppercase mx-3">Branches</span>
               <div className="w-16 h-0.5 bg-blue-600"></div>
             </div>
-            <h2 className="text-4xl font-bold text-gray-900">Bureaux dans le monde</h2>
+            <h2 className="text-4xl font-bold text-gray-900">Offices Worldwide</h2>
           </div>
           <div className="mapouter">
             <div className="gmap_canvas">
@@ -306,12 +306,12 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="cta-wrap grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Abonnez-vous à notre newsletter</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Subscribe to our newsletter</h3>
               <div className="flex flex-col sm:flex-row gap-4">
                 <input 
                   type="email" 
                   name="email" 
-                  placeholder="Entrez votre email" 
+                  placeholder="Enter your email" 
                   className="input w-full sm:w-auto flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" 
                   required 
                 />
@@ -319,7 +319,7 @@ const Contact = () => {
                   type="submit" 
                   className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                 >
-                  S'abonner
+                  Subscribe
                 </button>
               </div>
             </div>

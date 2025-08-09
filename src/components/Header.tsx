@@ -54,12 +54,6 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-            >
-              Get Started
-            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -86,13 +80,6 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="inline-block bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-6 py-2 rounded-full font-medium mt-3"
-              onClick={() => setIsOpen(false)}
-            >
-              Get Started
-            </a>
           </div>
         )}
       </div>
