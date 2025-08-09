@@ -54,7 +54,10 @@ const Hero = () => {
             </div>
 
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Omega Research & Consulting
+              Discover Innovative
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                {' '}Research Solutions
+              </span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-8 max-w-2xl">
