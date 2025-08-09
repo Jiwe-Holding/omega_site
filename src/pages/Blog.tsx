@@ -32,7 +32,7 @@ const Blog = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[68vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -45,7 +45,7 @@ const Blog = () => {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center mt-20 text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></span>
             Insights & Knowledge
