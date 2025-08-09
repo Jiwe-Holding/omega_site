@@ -33,7 +33,7 @@ const About = () => {
         </div>
         <div className="flex justify-center">
           <img
-            src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=720&q=80"
+            src="assets/img/about_1.jpg"
             alt="About Omega Consulting"
             className="rounded-xl shadow-lg w-full max-w-md"
           />

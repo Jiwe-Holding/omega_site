@@ -94,19 +94,6 @@ const Contact = () => {
     <>
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
-              Get In Touch
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Let's Start Your Research Journey
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to transform your data into insights? Contact us today to discuss how we can help 
-              you achieve your research and strategic objectives.
-            </p>
-          </div>
-
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="bg-gray-50 rounded-3xl p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-gray-900 mb-8">Send Us a Message</h3>

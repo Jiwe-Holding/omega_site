@@ -9,14 +9,14 @@ const Values = () => {
       year: "2010",
       month: "Founded",
       title: "Market Leadership Established",
-      text: "We are the largest and most impactful research company in Central Africa: 786 interviewers, 88 supervisors, 22 consultants, 10 specialists, more than 18 permanent clients, 22 different pieces of research solutions, and have conducted 288 projects to empower our clients.",
+      text: "We are the largest and most impactful research company in Central Africa: 786 interviewers, 88 supervisors, 22 consultants, 10 specialists, more than 18 permanent partners, 22 different pieces of research solutions, and have conducted 288 projects to empower our partners.",
       type: "type1"
     },
     {
       year: "2011",
       month: "Innovation",
       title: "Data Mining Pioneer",
-      text: "We were the first research company in Central Africa with data-mining skills, tools and active projects achievements. Today, we have 18 permanent clients with 4 on data-mining and big data analysis.",
+      text: "We were the first research company in Central Africa with data-mining skills, tools and active projects achievements. Today, we have 18 permanent partners with 4 on data-mining and big data analysis.",
       type: "type2"
     },
     {
