@@ -75,24 +75,26 @@ const Home = () => {
       description: "We are Icebreaker in the route to bring more complete & scientific based results. Never give up mind oriented.",
       color: "from-blue-500 to-indigo-600"
     },
+      {
+          icon: Eye,
+          title: "Open",
+          description: "Our mind is like parachute. We always open to new and more impactful ideas to make it work.",
+          color: "from-purple-500 to-violet-600"
+      },
+      {
+          icon: Zap,
+          title: "Speed",
+          description: "Speed is critical in our business. We are making sure that you get the right deliverable, quicker than anyone else.",
+          color: "from-yellow-500 to-orange-600"
+      },
     {
       icon: UserCheck,
       title: "Accountability",
       description: "We take fully the responsibility of our actions that influence the life of our customers and fellow workers.",
       color: "from-green-500 to-emerald-600"
     },
-    {
-      icon: Eye,
-      title: "Open",
-      description: "Our mind is like parachute. We always open to new and more impactful ideas to make it work.",
-      color: "from-purple-500 to-violet-600"
-    },
-    {
-      icon: Zap,
-      title: "Speed",
-      description: "Speed is critical in our business. We are making sure that you get the right deliverable, quicker than anyone else.",
-      color: "from-yellow-500 to-orange-600"
-    },
+
+
     {
       icon: Award,
       title: "Integrity",
