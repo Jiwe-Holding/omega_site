@@ -67,17 +67,12 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
               <a
-                href="#services"
+                href="/services"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-semibold rounded-full hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
               >
                 Explore Services
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-
-              <button className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300 group">
-                <PlayCircle className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                Watch Demo
-              </button>
             </div>
 
             {/* Stats */}
