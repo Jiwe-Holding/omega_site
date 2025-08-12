@@ -6,7 +6,12 @@ import { Heart, Shield, Eye, Zap, UserCheck, Award } from "lucide-react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 // Example data (replace with your own)
-type CompanyValue = { title: string; description: string; icon: React.ComponentType<{ className?: string }> };
+type CompanyValue = {
+    title: string;
+    description: string;
+    icon: React.ComponentType<{ className?: string }>;
+    iconColor: string; // Nouvelle propriété pour la couleur
+};
 
 const companyValues: CompanyValue[] = [
     {
@@ -14,36 +19,42 @@ const companyValues: CompanyValue[] = [
         title: "Passion",
         description:
             "We put our heart and mind in our work to deliver the BEST value and experience.",
+        iconColor: "from-red-500 to-pink-600", // Rouge pour la passion
     },
     {
         icon: Shield,
         title: "Resilience",
         description:
             "We are Icebreaker in the route to bring more complete & scientific based results. Never give up mind oriented.",
+        iconColor: "from-green-500 to-emerald-600", // Vert pour la résilience
     },
     {
         icon: Eye,
         title: "Open",
         description:
             "Our mind is like parachute. We always open to new and more impactful ideas to make it work.",
+        iconColor: "from-amber-500 to-orange-600", // Orange pour l'ouverture
     },
     {
         icon: Zap,
         title: "Speed",
         description:
             "Speed is critical in our business. We are making sure that you get the right deliverable, quicker than anyone else.",
+        iconColor: "from-yellow-400 to-yellow-600", // Jaune pour la rapidité
     },
     {
         icon: UserCheck,
         title: "Accountability",
         description:
             "We take fully the responsibility of our actions that influence the life of our customers and fellow workers.",
+        iconColor: "from-purple-500 to-indigo-600", // Violet pour la responsabilité
     },
     {
         icon: Award,
         title: "Integrity",
         description:
             "We uphold the highest ethical standards and maintain transparency in all our professional relationships and research practices.",
+        iconColor: "from-blue-500 to-blue-700", // Bleu pour l'intégrité (garde la couleur principale)
     },
 ];
 
@@ -144,7 +155,7 @@ export default function CompanyValuesSection() {
     );
 }
 
-function ValueCard({ value }: { value: { title: string; description: string; icon: React.ComponentType<{ className?: string }> } }) {
+function ValueCard({ value }: { value: { title: string; description: string; icon: React.ComponentType<{ className?: string }>; iconColor: string } }) {
     const { style, onMove, onLeave } = useTilt();
     const Icon = value.icon;
 
@@ -155,9 +166,9 @@ function ValueCard({ value }: { value: { title: string; description: string; ico
             style={style}
             className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-blue-300 transition-all duration-300 shadow-sm hover:shadow-xl [transform-style:preserve-3d]"
         >
-            {/* 3D layered header badge */}
+            {/* 3D layered header badge avec couleur personnalisée */}
             <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-xl flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-lg group-hover:shadow-2xl transition-shadow [transform:translateZ(24px)]">
+                <div className={`w-16 h-16 rounded-xl flex items-center justify-center bg-gradient-to-br ${value.iconColor} text-white shadow-lg group-hover:shadow-2xl transition-shadow [transform:translateZ(24px)]`}>
                     <Icon className="w-8 h-8" />
                 </div>
                 <div className="flex-1">

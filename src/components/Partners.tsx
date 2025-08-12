@@ -46,8 +46,8 @@ export default function Partners() {
             {/* Marquee */}
             <div className="relative">
                 {/* Edge fade masks (fond blanc) */}
-                <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-transparent to-transparent" />
-                <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-transparent to-transparent" />
+                <div className="pointer-events-none absolute left-0 top-0 h-full w-28 bg-gradient-to-r from-transparent to-transparent" />
+                <div className="pointer-events-none absolute right-0 top-0 h-full w-28 bg-gradient-to-l from-transparent to-transparent" />
 
                 <div className="overflow-hidden">
                     <div className="flex gap-8 items-center min-w-max animate-[scroll-x_28s_linear_infinite]
@@ -55,14 +55,14 @@ export default function Partners() {
                         {marquee.map((p, i) => (
                             <div key={i} className="group w-40 sm:w-44 md:w-48">
                                 <div
-                                    className="w-full h-20 bg-transparent rounded-xl grid place-items-center
+                                    className="w-full h-24 bg-transparent rounded-xl grid place-items-center
                        shadow-sm overflow-hidden transition-colors"
                                 >
                                     <img
                                         src={p.logo}
                                         alt={p.name}
                                         loading="lazy"
-                                        className="max-h-10 w-auto object-contain transition-all duration-300
+                                        className="max-h-16 w-auto object-contain transition-all duration-300
                          group-hover:[filter:grayscale(1)_brightness(.9)_sepia(1)_hue-rotate(190deg)_saturate(600%)]"
                                         onError={(e) => {
                                             const el = e.currentTarget as HTMLImageElement;

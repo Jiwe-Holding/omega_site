@@ -67,7 +67,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
               <a
-                href="/services"
+                href="#services"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-semibold rounded-full hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
               >
                 Explore Services
