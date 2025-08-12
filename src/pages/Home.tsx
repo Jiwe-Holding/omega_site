@@ -16,6 +16,8 @@ import Testimonials from '../components/Testimonials';
 import {BlogPreviewSection} from "../components/Blog.tsx";
 import ServicesPreviewSection from "../components/Services.tsx";
 import Partners from "../components/Partners.tsx";
+import Values from "../components/Stats.tsx";
+import CompanyValuesSection from "../components/Values.tsx";
 
 const Home = () => {
 
@@ -255,78 +257,10 @@ const Home = () => {
         </div>
 
       {/* Company Values */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        {/* Background Pattern (blue-only, corporate) */}
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600/10 to-blue-800/10"></div>
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-700/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        </div>
+        <CompanyValuesSection/>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-blue-600 rounded-full mr-2 animate-pulse"></span>
-              The Heart of Our Organization
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Our Core Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide every decision we make and every project we deliver
-            </p>
-          </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side - Target Icon (blue) */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Concentric animated rings */}
-                <div className="relative w-80 h-80 flex items-center justify-center">
-                  <div className="absolute inset-0 rounded-full border-4 border-blue-100 animate-pulse" />
-                  <div className="absolute inset-4 rounded-full border-4 border-blue-200 animate-pulse [animation-delay:400ms]" />
-                  <div className="absolute inset-8 rounded-full border-4 border-blue-300 animate-pulse [animation-delay:800ms]" />
-
-                  {/* Main target icon on clean white disc */}
-                  <div className="relative w-48 h-48 bg-white rounded-full flex items-center justify-center shadow-2xl border border-blue-200">
-                    <FaBullseye className="w-24 h-24 text-blue-600" />
-
-                    {/* Soft rotating halo for depth */}
-                    <div className="absolute -inset-2 rounded-full border border-blue-200/60 blur-[1px] [animation:spin_12s_linear_infinite]" />
-                  </div>
-
-                  {/* Floating accent elements (all blue) */}
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full animate-bounce [animation-delay:300ms]" />
-                  <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-700 rounded-full animate-bounce [animation-delay:700ms]" />
-                  <div className="absolute top-1/2 -left-8 w-4 h-4 bg-blue-400 rounded-full animate-bounce [animation-delay:1000ms]" />
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side - Values List with 3D hover tilt */}
-            <div className="space-y-6">
-              {companyValues.map((value, index) => (
-                <ValueCard key={index} value={value} />
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-16">
-            <Link
-              to="/about"
-              className="inline-flex items-center px-8 py-4 bg-blue-900 text-white font-semibold rounded-full hover:bg-blue-800 transition-colors shadow-sm"
-            >
-              Discover Our Story
-              <FaArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-
-        {/* keyframes for slow spin (Tailwind arbitrary syntax-ready) */}
-        <style>{`
-          @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        `}</style>
-      </section>
-
-      {/* Testimonials places */}
+        {/* Testimonials places */}
       <Testimonials />
 
         {/* Partners places */}
