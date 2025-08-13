@@ -196,22 +196,6 @@ const Values = () => {
             );
           })}
         </div>
-
-        <div className="text-center mt-20">
-          <div className={`transition-all duration-1000 ${
-            visibleItems.size > values.length / 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Ready to Shape the Future Together?
-            </h3>
-            <p className="text-gray-600 mb-8 text-lg">
-              Join us in our mission to revolutionize research in Central Africa
-            </p>
-            <button className="bg-gradient-to-r from-[#1E88E5] to-[#1565C0] text-white px-10 py-4 rounded-full font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-              Start Your Journey
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
