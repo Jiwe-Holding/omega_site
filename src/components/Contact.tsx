@@ -1,12 +1,15 @@
 import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { API_CONFIG, EMAIL_TEMPLATES } from '../config/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
+    companyType: '',
+    phone: '',
+    country: '',
     subject: '',
     message: ''
   });
@@ -15,10 +18,6 @@ const Contact = () => {
   const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
 
-  // EmailJS Configuration - Replace with your real keys
-  const EMAILJS_SERVICE_ID = "service_f8dnr5e";
-  const EMAILJS_TEMPLATE_ID = "template_dw9bw7q";
-  const EMAILJS_PUBLIC_KEY = "Nf7GhXvd85BwYq4dB";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,27 +25,62 @@ const Contact = () => {
     setError('');
 
     try {
-      //
-      // EmailJS Simulation (replace with real code)
-      if (form.current) {
-        await emailjs.sendForm(
-          EMAILJS_SERVICE_ID, 
-          EMAILJS_TEMPLATE_ID, 
-          form.current, 
-          EMAILJS_PUBLIC_KEY
-        );
-      } else {
-        throw new Error('Form reference is null.');
+      // Split name into first and last name
+      const nameParts = formData.name.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      // Prepare the email data according to the API structure
+      const emailData = {
+        sender_email: formData.email,
+        sender_name: EMAIL_TEMPLATES.CONTACT.sender_name,
+        organisation: formData.company || "Non spécifié",
+        sujet: `${EMAIL_TEMPLATES.CONTACT.sujet_prefix} - ${formData.subject || 'Demande générale'}`,
+        message: `
+          Nom complet: ${formData.name}
+          Email: ${formData.email}
+          Compagnie: ${formData.company || 'Non spécifié'}
+          Type d'entreprise: ${formData.companyType || 'Non spécifié'}
+          Téléphone: ${formData.phone || 'Non spécifié'}
+          Pays: ${formData.country || 'Non spécifié'}
+          Type de projet: ${formData.subject || 'Non spécifié'}
+          
+          Message:
+          ${formData.message}
+        `,
+        noms: [firstName, lastName],
+        extra_json: {
+          company_type: formData.companyType || "Non spécifié",
+          sector: formData.subject || "Non spécifié",
+          country: formData.country || "Non spécifié"
+        }
+      };
+
+      // Send email via API
+      const response = await fetch(API_CONFIG.EMAIL_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': API_CONFIG.EMAIL_API_TOKEN
+        },
+        body: JSON.stringify(emailData)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
-      // Demo simulation
-      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      const result = await response.json();
+      console.log('Email sent successfully:', result);
       
       setIsSubmitted(true);
       setFormData({
         name: '',
         email: '',
         company: '',
+        companyType: '',
+        phone: '',
+        country: '',
         subject: '',
         message: ''
       });
@@ -54,7 +88,7 @@ const Contact = () => {
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
       console.error('Error sending message:', error);
-      setError('An error occurred while sending. Please try again.');
+      setError('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
     } finally {
       setIsLoading(false);
     }
@@ -153,20 +187,101 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Company
-                    </label>
-                    <input 
-                      type="text" 
-                      id="company" 
-                      name="company" 
-                      value={formData.company} 
-                      onChange={handleChange} 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-                      placeholder="Your company name" 
-                      disabled={isLoading}
-                    />
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                        Company
+                      </label>
+                      <input 
+                        type="text" 
+                        id="company" 
+                        name="company" 
+                        value={formData.company} 
+                        onChange={handleChange} 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                        placeholder="Your company name" 
+                        disabled={isLoading}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="companyType" className="block text-sm font-medium text-gray-700 mb-2">
+                        Company Type
+                      </label>
+                      <select 
+                        id="companyType" 
+                        name="companyType" 
+                        value={formData.companyType} 
+                        onChange={handleChange} 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        disabled={isLoading}
+                      >
+                        <option value="">Select company type</option>
+                        <option value="startup">Startup</option>
+                        <option value="sme">SME (Small & Medium Enterprise)</option>
+                        <option value="large-corporation">Large Corporation</option>
+                        <option value="ngo">NGO</option>
+                        <option value="government">Government Agency</option>
+                        <option value="academic">Academic Institution</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number
+                      </label>
+                      <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        value={formData.phone} 
+                        onChange={handleChange} 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                        placeholder="+243 99 123 4567" 
+                        disabled={isLoading}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+                        Country
+                      </label>
+                      <select 
+                        id="country" 
+                        name="country" 
+                        value={formData.country} 
+                        onChange={handleChange} 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        disabled={isLoading}
+                      >
+                        <option value="">Select your country</option>
+                        <option value="drc">Democratic Republic of Congo</option>
+                        <option value="congo">Republic of Congo</option>
+                        <option value="cameroon">Cameroon</option>
+                        <option value="central-african-republic">Central African Republic</option>
+                        <option value="chad">Chad</option>
+                        <option value="gabon">Gabon</option>
+                        <option value="equatorial-guinea">Equatorial Guinea</option>
+                        <option value="sao-tome">São Tomé and Príncipe</option>
+                        <option value="angola">Angola</option>
+                        <option value="zambia">Zambia</option>
+                        <option value="tanzania">Tanzania</option>
+                        <option value="kenya">Kenya</option>
+                        <option value="uganda">Uganda</option>
+                        <option value="rwanda">Rwanda</option>
+                        <option value="burundi">Burundi</option>
+                        <option value="south-africa">South Africa</option>
+                        <option value="nigeria">Nigeria</option>
+                        <option value="ghana">Ghana</option>
+                        <option value="senegal">Senegal</option>
+                        <option value="ivory-coast">Ivory Coast</option>
+                        <option value="mali">Mali</option>
+                        <option value="burkina-faso">Burkina Faso</option>
+                        <option value="niger">Niger</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div>

@@ -6,8 +6,8 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "The Future of Market Research in Central Africa",
-      excerpt: "Exploring emerging trends and technologies that are shaping the research landscape in Central Africa.",
+      title: "The Future of Market Research in Africa",
+      excerpt: "Exploring emerging trends and technologies that are shaping the research landscape in Africa.",
         author: "Omega Insights Team",
       date: "March 15, 2024",
       image: "/assets/img/articles/article_1.jpg",
@@ -57,7 +57,7 @@ const Blog = () => {
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Stay updated with the latest trends, insights, and thought leadership 
-            in market research and consulting across Central Africa.
+            in market research and consulting across Africa.
           </p>
         </div>
       </section>

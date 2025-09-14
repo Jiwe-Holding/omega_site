@@ -315,7 +315,7 @@ export function BlogPreviewSection({ blogPosts }: { blogPosts: BlogPost[] }) {
 // --- Example data wired to the section (from user) ---
 export const blogPosts: BlogPost[] = [
     {
-        title: "The Future of Market Research in Central Africa",
+        title: "The Future of Market Research in Africa",
         excerpt: "Exploring emerging trends and technologies shaping research landscape...",
         date: "March 15, 2024",
         author: "Dr. Marie Kabila",

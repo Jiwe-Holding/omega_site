@@ -107,7 +107,7 @@ const Home = () => {
 
   const blogPosts = [
       {
-          title: "The Future of Market Research in Central Africa",
+          title: "The Future of Market Research in Africa",
           excerpt: "Exploring emerging trends and technologies shaping research landscape...",
           date: "March 15, 2024",
           author: "Omega Insights Team",
@@ -160,12 +160,12 @@ const Home = () => {
                         </div>
 
                         <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                            Leading Research Excellence in Central Africa
+                            Leading Research Excellence in Africa
                         </h2>
 
                         <p className="text-lg text-gray-600 mb-6">
                             With over a decade of experience, we are the largest and most impactful
-                            research company in Central Africa, delivering insights that drive strategic
+                            research company in Africa, delivering insights that drive strategic
                             decisions across multiple industries.
                         </p>
 
@@ -173,7 +173,7 @@ const Home = () => {
                             <li className="flex items-start text-gray-700">
                                 <FaCheckCircle className="text-blue-600 mr-3 w-5 h-5 mt-0.5" />
                                 <span>
-              <strong className="text-gray-900">786</strong> interviewers across Central Africa
+              <strong className="text-gray-900">786</strong> interviewers across Africa
             </span>
                             </li>
                             <li className="flex items-start text-gray-700">

@@ -32,16 +32,22 @@ const Hero = () => {
                 <div className="text-gray-300 text-sm">Data-driven insights for strategic decisions</div>
               </div>
 
-              <div className="absolute top-20 right-0 w-64 h-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl border border-white/20 p-6 animate-float delay-500">
+              <div className="absolute top-0 right-0 w-64 h-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl border border-white/20 p-6 animate-float delay-500">
                 <div className="w-8 h-8 bg-purple-500 rounded-lg mb-4"></div>
                 <div className="text-white font-semibold mb-2">Strategic Consulting</div>
                 <div className="text-gray-300 text-sm">Expert guidance for complex challenges</div>
               </div>
 
-              <div className="absolute bottom-0 left-8 w-64 h-40 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-white/20 p-6 animate-float delay-1000">
+              <div className="absolute bottom-0 left-0 w-64 h-40 bg-gradient-to-br from-green-500/20 to-blue-500/20 backdrop-blur-sm rounded-2xl border border-white/20 p-6 animate-float delay-1000">
                 <div className="w-8 h-8 bg-green-500 rounded-lg mb-4"></div>
                 <div className="text-white font-semibold mb-2">Custom Solutions</div>
                 <div className="text-gray-300 text-sm">Tailored approaches for unique needs</div>
+              </div>
+
+              <div className="absolute bottom-0 right-0 w-64 h-40 bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-sm rounded-2xl border border-white/20 p-6 animate-float delay-1500">
+                <div className="w-8 h-8 bg-orange-500 rounded-lg mb-4"></div>
+                <div className="text-white font-semibold mb-2">Data Collection</div>
+                <div className="text-gray-300 text-sm">Comprehensive data gathering solutions</div>
               </div>
             </div>
           </div>

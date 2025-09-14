@@ -31,7 +31,7 @@ const Services = () => {
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             From market research to strategic consulting, we provide tailored solutions 
-            that drive growth and innovation across Central Africa.
+            that drive growth and innovation across Africa.
           </p>
         </div>
       </section>

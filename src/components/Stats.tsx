@@ -9,14 +9,14 @@ const Values = () => {
       year: "2010",
       month: "Founded",
       title: "Market Leadership Established",
-      text: "We are the largest and most impactful research company in Central Africa: 786 interviewers, 88 supervisors, 22 consultants, 10 specialists, more than 18 permanent partners, 22 different pieces of research solutions, and have conducted 288 projects to empower our partners.",
+      text: "We are the largest and most impactful research company in Africa: 786 interviewers, 88 supervisors, 22 consultants, 10 specialists, more than 18 permanent partners, 22 different pieces of research solutions, and have conducted 288 projects to empower our partners.",
       type: "type1"
     },
     {
       year: "2011",
       month: "Innovation",
       title: "Data Mining Pioneer",
-      text: "We were the first research company in Central Africa with data-mining skills, tools and active projects achievements. Today, we have 18 permanent partners with 4 on data-mining and big data analysis.",
+      text: "We were the first research company in Africa with data-mining skills, tools and active projects achievements. Today, we have 18 permanent partners with 4 on data-mining and big data analysis.",
       type: "type2"
     },
     {
@@ -44,7 +44,7 @@ const Values = () => {
       year: "2016",
       month: "Infrastructure",
       title: "Focus Group Innovation",
-      text: "We were the only Central Africa research company using One-way mirror when conducting Focus groups. Today, all our 30 focus group studies (annual average) are taking place in a one-way mirror room.",
+      text: "We were the only Africa research company using One-way mirror when conducting Focus groups. Today, all our 30 focus group studies (annual average) are taking place in a one-way mirror room.",
       type: "type3"
     },
     {
@@ -126,7 +126,7 @@ const Values = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-4">Company Evolution</h2>
           <p className="text-lg md:text-xl text-gray-600 font-light">
-            Milestones that shaped our leadership in Central African research
+            Milestones that shaped our leadership in African research
           </p>
         </div>
 
