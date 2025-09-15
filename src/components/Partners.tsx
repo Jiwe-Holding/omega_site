@@ -110,39 +110,6 @@ export default function Partners() {
                         </div>
                     </div>
                 </div>
-
-                {/* Ligne 3: Droite à gauche */}
-                <div className="relative">
-                    {/* Edge fade masks */}
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-28 bg-gradient-to-r from-white to-transparent z-10" />
-                    <div className="pointer-events-none absolute right-0 top-0 h-full w-28 bg-gradient-to-l from-white to-transparent z-10" />
-
-                    <div className="overflow-hidden">
-                        <div className="flex gap-8 items-center min-w-max animate-[scroll-right-to-left_45s_linear_infinite]
-                        hover:[animation-play-state:paused] will-change-transform px-8">
-                            {marquee.map((p, i) => (
-                                <div key={`line3-${i}`} className="group w-40 sm:w-44 md:w-48">
-                                    <div
-                                        className="w-full h-24 bg-transparent rounded-xl grid place-items-center
-                           shadow-sm overflow-hidden transition-colors"
-                                    >
-                                        <img
-                                            src={p.logo}
-                                            alt={p.name}
-                                            loading="lazy"
-                                            className="max-h-16 w-auto object-contain transition-all duration-300
-                             group-hover:[filter:grayscale(1)_brightness(.9)_sepia(1)_hue-rotate(190deg)_saturate(600%)]"
-                                            onError={(e) => {
-                                                const el = e.currentTarget as HTMLImageElement;
-                                                el.style.opacity = "0.4";
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
