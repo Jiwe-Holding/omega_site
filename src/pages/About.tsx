@@ -1,9 +1,30 @@
 import AboutComponent from '../components/About';
 import Stats from '../components/Stats';
+import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 const About = () => {
+  // Données structurées pour la page About
+  const aboutPageData = {
+    "mainEntity": {
+      "@type": "AboutPage",
+      "name": "À propos d'Omega Research & Consulting",
+      "description": "Découvrez l'histoire, la mission et les valeurs d'Omega Research & Consulting, leader de la recherche en Afrique depuis 2009.",
+      "url": "https://omega.cd/about"
+    }
+  };
+
   return (
     <div>
+      <SEO 
+        title="À propos d'Omega Research & Consulting - Notre Histoire et Mission"
+        description="Découvrez Omega Research & Consulting, la plus grande entreprise de recherche en Afrique. Notre histoire, mission, valeurs et engagement pour l'excellence depuis 2009."
+        keywords="à propos, histoire, mission, valeurs, équipe, Omega Research, recherche Afrique, consulting, expertise"
+        url="/about"
+      />
+      
+      <StructuredData type="organization" data={aboutPageData} />
+      
       {/* Hero Section */}
       <section className="relative min-h-[68vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}

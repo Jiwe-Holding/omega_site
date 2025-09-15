@@ -18,6 +18,8 @@ import ServicesPreviewSection from "../components/Services.tsx";
 import Partners from "../components/Partners.tsx";
 import Values from "../components/Stats.tsx";
 import CompanyValuesSection from "../components/Values.tsx";
+import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 const Home = () => {
 
@@ -136,15 +138,62 @@ const Home = () => {
       // },
   ];
 
+  // Données structurées pour la page d'accueil
+  const organizationData = {
+    "foundingDate": "2009",
+    "numberOfEmployees": "786",
+    "areaServed": "Africa",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CD",
+      "addressRegion": "Kinshasa",
+      "addressLocality": "Kinshasa",
+      "streetAddress": "8177, Quantum Building, Blvd 30 juin, Gombe"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+243996998277",
+      "email": "contact@omega.cd",
+      "contactType": "customer service"
+    },
+    "knowsAbout": [
+      "Market Research",
+      "Strategic Consulting", 
+      "Data Analytics",
+      "Consumer Insights",
+      "Business Intelligence"
+    ]
+  };
+
+  const websiteData = {
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://omega.cd/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <div>
+      <SEO 
+        title="Omega Research & Consulting - Leader de la Recherche en Afrique"
+        description="Omega Research & Consulting est la plus grande entreprise de recherche en Afrique avec 786 interviewers, 288+ projets réalisés et 18+ clients permanents. Expertise en recherche de marché, consulting stratégique et solutions personnalisées."
+        keywords="recherche de marché, consulting, Afrique, études de marché, analyse de données, insights business, recherche quantitative, recherche qualitative, Omega Research"
+        url="/"
+      />
+      
+      <StructuredData type="organization" data={organizationData} />
+      <StructuredData type="website" data={websiteData} />
+      
       <Hero />
       
       {/* Services Preview */}
-      <ServicesPreviewSection servicesPreview={servicesPreviews}/>
+      <section aria-labelledby="services-heading">
+        <ServicesPreviewSection servicesPreview={servicesPreviews}/>
+      </section>
 
       {/* About Preview */}
-      <section className="relative py-20 bg-gray-50 overflow-hidden">
+      <section className="relative py-20 bg-gray-50 overflow-hidden" aria-labelledby="about-heading">
         {/* Blue ambient accents */}
         <div className="pointer-events-none absolute inset-0 opacity-10">
             <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-400/30 rounded-full blur-3xl" />
@@ -159,7 +208,7 @@ const Home = () => {
                             About Omega Research
                         </div>
 
-                        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                        <h2 id="about-heading" className="text-4xl font-bold text-gray-900 mb-6">
                             Leading Research Excellence in Africa
                         </h2>
 
@@ -169,21 +218,21 @@ const Home = () => {
                             decisions across multiple industries.
                         </p>
 
-                        <ul className="space-y-4 mb-8">
+                        <ul className="space-y-4 mb-8" role="list" aria-label="Statistiques clés d'Omega Research">
                             <li className="flex items-start text-gray-700">
-                                <FaCheckCircle className="text-blue-600 mr-3 w-5 h-5 mt-0.5" />
+                                <FaCheckCircle className="text-blue-600 mr-3 w-5 h-5 mt-0.5" aria-hidden="true" />
                                 <span>
               <strong className="text-gray-900">786</strong> interviewers across Africa
             </span>
                             </li>
                             <li className="flex items-start text-gray-700">
-                                <FaCheckCircle className="text-blue-600 mr-3 w-5 h-5 mt-0.5" />
+                                <FaCheckCircle className="text-blue-600 mr-3 w-5 h-5 mt-0.5" aria-hidden="true" />
                                 <span>
               <strong className="text-gray-900">288+</strong> completed projects
             </span>
                             </li>
                             <li className="flex items-start text-gray-700">
-                                <FaCheckCircle className="text-blue-600 mr-3 w-5 h-5 mt-0.5" />
+                                <FaCheckCircle className="text-blue-600 mr-3 w-5 h-5 mt-0.5" aria-hidden="true" />
                                 <span>
               <strong className="text-gray-900">18+</strong> permanent clients
             </span>
@@ -191,20 +240,20 @@ const Home = () => {
                         </ul>
 
                         {/* Compact stat strip (blue, corporate) */}
-                        <div className="grid grid-cols-3 gap-4 mb-10">
+                        <div className="grid grid-cols-3 gap-4 mb-10" role="group" aria-label="Statistiques détaillées">
                             <div className="bg-white rounded-xl border border-blue-100 p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-                                <FaUsers className="w-6 h-6 mx-auto text-blue-600 mb-2" />
-                                <div className="text-2xl font-bold text-gray-900">786</div>
+                                <FaUsers className="w-6 h-6 mx-auto text-blue-600 mb-2" aria-hidden="true" />
+                                <div className="text-2xl font-bold text-gray-900" aria-label="786 interviewers">786</div>
                                 <div className="text-xs text-gray-500">Interviewers</div>
                             </div>
                             <div className="bg-white rounded-xl border border-blue-100 p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-                                <FaChartLine className="w-6 h-6 mx-auto text-blue-600 mb-2" />
-                                <div className="text-2xl font-bold text-gray-900">288+</div>
+                                <FaChartLine className="w-6 h-6 mx-auto text-blue-600 mb-2" aria-hidden="true" />
+                                <div className="text-2xl font-bold text-gray-900" aria-label="288 plus projets">288+</div>
                                 <div className="text-xs text-gray-500">Projects</div>
                             </div>
                             <div className="bg-white rounded-xl border border-blue-100 p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-                                <FaHandshake className="w-6 h-6 mx-auto text-blue-600 mb-2" />
-                                <div className="text-2xl font-bold text-gray-900">18+</div>
+                                <FaHandshake className="w-6 h-6 mx-auto text-blue-600 mb-2" aria-hidden="true" />
+                                <div className="text-2xl font-bold text-gray-900" aria-label="18 plus clients">18+</div>
                                 <div className="text-xs text-gray-500">Clients</div>
                             </div>
                         </div>

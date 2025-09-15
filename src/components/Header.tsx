@@ -32,16 +32,19 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3" aria-label="Omega Research & Consulting - Accueil">
             <img
               src={scrolled ? '/assets/img/logo.png' : '/assets/img/logo_blanc.png'}
-              alt="Omega Research & Consulting"
+              alt="Omega Research & Consulting - Logo"
               className="h-10 w-auto transition-all duration-300"
+              width="120"
+              height="40"
+              loading="eager"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8" role="navigation" aria-label="Navigation principale">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -51,6 +54,7 @@ const Header = () => {
                     ? 'text-blue-600'
                     : scrolled ? 'text-gray-700' : 'text-white/90'
                 }`}
+                aria-current={location.pathname === item.href ? 'page' : undefined}
               >
                 {item.name}
               </Link>
@@ -67,6 +71,9 @@ const Header = () => {
             className={`md:hidden transition-colors ${
               scrolled ? 'text-gray-900' : 'text-white'
             }`}
+            aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -74,7 +81,12 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-white rounded-lg shadow-xl mt-2 py-4 border text-center space-y-2">
+          <div 
+            id="mobile-menu"
+            className="md:hidden bg-white rounded-lg shadow-xl mt-2 py-4 border text-center space-y-2"
+            role="navigation"
+            aria-label="Navigation mobile"
+          >
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -85,6 +97,7 @@ const Header = () => {
                     : 'text-gray-700'
                 }`}
                 onClick={() => setIsOpen(false)}
+                aria-current={location.pathname === item.href ? 'page' : undefined}
               >
                 {item.name}
               </Link>
