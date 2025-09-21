@@ -1,0 +1,20 @@
+services:
+  omega_site:
+    build: .
+    container_name: omega_site
+    ports:
+      - "5176:8080"              # <- host:container
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro   # <- Caddyfile **du projet**
+    restart: always
+    networks:
+      - web_network
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+networks:
+  web_network:
+    external: true

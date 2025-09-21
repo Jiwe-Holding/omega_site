@@ -1,0 +1,83 @@
+name: Omega CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enable debug mode
+        run: set -x
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies (verbose)
+        run: |
+          npm install --verbose
+
+      - name: Build React app
+        run: |
+          npm run build
+
+      # Désactivé si pas de tests
+      - name: Run tests (skipped if not configured)
+        run: |
+          echo "No tests configured. Skipping..."
+        continue-on-error: true
+
+  deploy-to-vps:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Enable debug mode
+      run: set -x
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.OMEGA_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Deploy to VPS via SSH
+      run: |
+        ssh -vvv -p ${{ secrets.SSH_PORT }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+          echo "Répertoire courant :"
+          pwd
+
+          echo "Accès à ~/apps/omega"
+          cd ~/apps/omega || exit 1
+
+          echo "Stash changements locaux"
+          git stash --include-untracked
+
+          echo "Git pull"
+          git pull origin main
+
+          echo "Install dependencies"
+          npm ci
+
+          echo "Build React app"
+          npm run build
+
+          # Docker deployment
+          docker-compose down
+          docker-compose up --build -d
+
+          echo "✅ Déploiement React terminé avec succès"
+        EOF
