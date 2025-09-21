@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -23,10 +23,15 @@ const Header = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
+  const isHomePage = location.pathname === '/';
+  const shouldBeTransparentMobile = !scrolled && isHomePage;
+
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 
+        shouldBeTransparentMobile ? 'bg-transparent md:bg-transparent' : 
+        'bg-white/95 backdrop-blur-md shadow-lg md:bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +39,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3" aria-label="Omega Research & Consulting - Accueil">
             <img
-              src={scrolled ? '/assets/img/logo.png' : '/assets/img/logo_blanc.png'}
+              src={scrolled ? '/assets/img/logo.png' : (shouldBeTransparentMobile ? '/assets/img/logo_blanc.png' : '/assets/img/logo.png')}
               alt="Omega Research & Consulting - Logo"
               className="h-10 w-auto transition-all duration-300"
               width="120"
@@ -69,7 +74,7 @@ const Header = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden transition-colors ${
-              scrolled ? 'text-gray-900' : 'text-white'
+              shouldBeTransparentMobile ? 'text-white' : 'text-gray-900'
             }`}
             aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={isOpen}
