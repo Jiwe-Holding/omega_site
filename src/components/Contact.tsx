@@ -96,8 +96,7 @@ const Contact = () => {
         body: JSON.stringify(emailData)
       });
 
-      if (response.status !== 200) {
-          console.log('----HTTP error! status:', response.json());
+      if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
