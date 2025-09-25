@@ -8,15 +8,15 @@ export const API_CONFIG = {
 // Email templates
 export const EMAIL_TEMPLATES = {
   CONTACT: {
-    sender_name: "OMEGA_RC",
+    sender_name: "JIWE_SITE",
     sujet_prefix: "Envoi depuis la page contact",
   },
   CHATBOT: {
-    sender_name: "OMEGA_RC",
+    sender_name: "JIWE_SITE",
     sujet_prefix: "Lead Chatbot",
   },
   QUOTE: {
-    sender_name: "OMEGA_RC", 
+    sender_name: "JIWE_SITE", 
     sujet_prefix: "Demande de devis",
   }
 };
