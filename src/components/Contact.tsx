@@ -89,11 +89,11 @@ const Contact = () => {
         
         ════════════════════════════════════════════════════════════════════════════════`,
         noms: [firstName, lastName],
-        extra_json: {
-          company_type: formData.companyType || "Non spécifié",
-          sector: formData.subject || "Non spécifié",
-          country: formData.country || "Non spécifié"
-        }
+        // extra_json: {
+        //   company_type: formData.companyType || "Non spécifié",
+        //   sector: formData.subject || "Non spécifié",
+        //   country: formData.country || "Non spécifié"
+        // }
       };
 
       // Send email via API
