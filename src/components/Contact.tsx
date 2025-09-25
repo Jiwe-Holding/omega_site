@@ -39,13 +39,9 @@ const Contact = () => {
         message: `
         
                                               
-                   🏢 OMEGA RESEARCH             
-                      & CONSULTING                
-                 Nouvelle Demande de Contact   
+             🏢 OMEGA RESEARCH & CONSULTING                
                                                 
-             ══════════════════════════════════
-
-        
+                    
             👤 INFORMATIONS DU PROSPECT               
             ─────────────────────────────
 
@@ -65,7 +61,7 @@ const Contact = () => {
 
        
             💬 MESSAGE DU PROSPECT                      
-            ──────────────────────
+            ──────────────────────────────
 
               ${formData.message}
 
@@ -85,7 +81,6 @@ const Contact = () => {
         📊 Nouvelle demande de contact  
         🔄 Réponse sous 24h recommandée
 
-        ──────────────────────────────────
 
                       ⚡ OMEGA RESEARCH ⚡
                         & CONSULTING
