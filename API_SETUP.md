@@ -12,7 +12,7 @@ REACT_APP_EMAIL_API_TOKEN=your_actual_api_token_here
 
 L'API d'envoi d'emails est configurée dans `src/config/api.ts` :
 
-- **URL** : `https://saas.jiwe-holding.online/api/mailer/api/send-email/`
+- **URL** : `https://saas.jiwe-holding.online/api/mailer/send-email/`
 - **Méthode** : POST
 - **Headers** : 
   - `Content-Type: application/json`

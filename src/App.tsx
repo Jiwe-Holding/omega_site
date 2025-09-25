@@ -8,7 +8,7 @@ import Services from './pages/Services';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
-import ChatBot from './components/ChatBot';
+import OmegaChatbotFixed from './components/OmegaChatbotFixed';
 import Breadcrumbs from './components/Breadcrumbs';
 import PerformanceMetrics from './components/PerformanceMetrics';
 
@@ -31,7 +31,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
-          <ChatBot />
+          <OmegaChatbotFixed />
         </div>
       </Router>
     </HelmetProvider>

@@ -11,6 +11,10 @@ export const EMAIL_TEMPLATES = {
     sender_name: "OMEGA_RC",
     sujet_prefix: "Envoi depuis la page contact",
   },
+  CHATBOT: {
+    sender_name: "OMEGA_RC",
+    sujet_prefix: "Lead Chatbot",
+  },
   QUOTE: {
     sender_name: "OMEGA_RC", 
     sujet_prefix: "Demande de devis",

@@ -1,0 +1,354 @@
+{
+  "languages": {
+    "en": {
+      "welcome": {
+        "message": "Hello! I'm Omega Assistant, your virtual assistant to discover our research and consulting services.",
+        "actions": [
+          {
+            "id": "start_journey",
+            "text": "Start journey",
+            "icon": ""
+          },
+          {
+            "id": "human_contact",
+            "text": "Talk to a human",
+            "icon": ""
+          }
+        ]
+      },
+      "profile_selection": {
+        "message": "What is your professional profile?",
+        "actions": [
+          {
+            "id": "profile_marketing",
+            "text": "Marketing / Communication",
+            "icon": ""
+          },
+          {
+            "id": "profile_sales",
+            "text": "Sales / Business Development",
+            "icon": ""
+          },
+          {
+            "id": "profile_management",
+            "text": "Management / Executive",
+            "icon": ""
+          },
+          {
+            "id": "profile_research",
+            "text": "Research / Analytics",
+            "icon": ""
+          },
+          {
+            "id": "profile_other",
+            "text": "Other",
+            "icon": ""
+          }
+        ]
+      },
+      "goal_selection": {
+        "message": "What is your main objective?",
+        "actions": [
+          {
+            "id": "goal_brand_awareness",
+            "text": "Improve brand awareness",
+            "icon": ""
+          },
+          {
+            "id": "goal_customer_satisfaction",
+            "text": "Measure customer satisfaction",
+            "icon": ""
+          },
+          {
+            "id": "goal_market_research",
+            "text": "Understand the market",
+            "icon": ""
+          },
+          {
+            "id": "goal_product_development",
+            "text": "Develop new products",
+            "icon": ""
+          },
+          {
+            "id": "goal_competitor_analysis",
+            "text": "Analyze competition",
+            "icon": ""
+          }
+        ]
+      },
+      "services": {
+        "research_analytics": {
+          "title": "Research Analytics",
+          "description": "Analyze your data for actionable insights",
+          "subservices": [
+            {
+              "id": "data_analysis",
+              "text": "Data analysis",
+              "icon": ""
+            },
+            {
+              "id": "market_trends",
+              "text": "Market trends",
+              "icon": ""
+            },
+            {
+              "id": "customer_insights",
+              "text": "Customer insights",
+              "icon": ""
+            }
+          ]
+        },
+        "strategic_consulting": {
+          "title": "Strategic Consulting",
+          "description": "Research-based strategic consulting",
+          "subservices": [
+            {
+              "id": "strategy_development",
+              "text": "Strategy development",
+              "icon": ""
+            },
+            {
+              "id": "market_entry",
+              "text": "Market entry",
+              "icon": ""
+            },
+            {
+              "id": "competitive_positioning",
+              "text": "Competitive positioning",
+              "icon": ""
+            }
+          ]
+        },
+        "nps_plus": {
+          "title": "NPS+",
+          "description": "Advanced satisfaction and loyalty measurement",
+          "subservices": [
+            {
+              "id": "nps_surveys",
+              "text": "NPS surveys",
+              "icon": ""
+            },
+            {
+              "id": "loyalty_programs",
+              "text": "Loyalty programs",
+              "icon": ""
+            },
+            {
+              "id": "retention_analysis",
+              "text": "Retention analysis",
+              "icon": ""
+            }
+          ]
+        },
+        "ua_research": {
+          "title": "U&A Research",
+          "description": "Usage & Attitudes Research",
+          "subservices": [
+            {
+              "id": "usage_patterns",
+              "text": "Usage patterns",
+              "icon": ""
+            },
+            {
+              "id": "attitude_studies",
+              "text": "Attitude studies",
+              "icon": ""
+            },
+            {
+              "id": "behavior_analysis",
+              "text": "Behavioral analysis",
+              "icon": ""
+            }
+          ]
+        },
+        "focus_groups": {
+          "title": "Focus Groups",
+          "description": "Qualitative discussion groups",
+          "subservices": [
+            {
+              "id": "moderated_sessions",
+              "text": "Moderated sessions",
+              "icon": ""
+            },
+            {
+              "id": "online_focus",
+              "text": "Online focus",
+              "icon": ""
+            },
+            {
+              "id": "ethnographic_studies",
+              "text": "Ethnographic studies",
+              "icon": ""
+            }
+          ]
+        }
+      },
+      "method_selection": {
+        "message": "Which research method do you prefer?",
+        "actions": [
+          {
+            "id": "method_quantitative",
+            "text": "Quantitative (surveys, polls)",
+            "icon": ""
+          },
+          {
+            "id": "method_qualitative",
+            "text": "Qualitative (interviews, focus groups)",
+            "icon": ""
+          },
+          {
+            "id": "method_mixed",
+            "text": "Mixed (quantitative + qualitative)",
+            "icon": ""
+          },
+          {
+            "id": "method_consultation",
+            "text": "Strategic consultation",
+            "icon": ""
+          }
+        ]
+      },
+      "sample_size": {
+        "message": "What sample size are you considering?",
+        "actions": [
+          {
+            "id": "sample_small",
+            "text": "Small (50-200 people)",
+            "icon": ""
+          },
+          {
+            "id": "sample_medium",
+            "text": "Medium (200-1000 people)",
+            "icon": ""
+          },
+          {
+            "id": "sample_large",
+            "text": "Large (1000+ people)",
+            "icon": ""
+          },
+          {
+            "id": "sample_consultation",
+            "text": "No sample (consultation)",
+            "icon": ""
+          }
+        ]
+      },
+      "timeline": {
+        "message": "What is your preferred timeline?",
+        "actions": [
+          {
+            "id": "timeline_urgent",
+            "text": "Urgent (1-2 weeks)",
+            "icon": ""
+          },
+          {
+            "id": "timeline_fast",
+            "text": "Fast (2-4 weeks)",
+            "icon": ""
+          },
+          {
+            "id": "timeline_standard",
+            "text": "Standard (1-2 months)",
+            "icon": ""
+          },
+          {
+            "id": "timeline_flexible",
+            "text": "Flexible (2+ months)",
+            "icon": ""
+          }
+        ]
+      },
+      "budget": {
+        "message": "What is your approximate budget?",
+        "actions": [
+          {
+            "id": "budget_small",
+            "text": "Less than $5,000",
+            "icon": ""
+          },
+          {
+            "id": "budget_medium",
+            "text": "$5,000 - $15,000",
+            "icon": ""
+          },
+          {
+            "id": "budget_large",
+            "text": "$15,000 - $50,000",
+            "icon": ""
+          },
+          {
+            "id": "budget_enterprise",
+            "text": "$50,000+",
+            "icon": ""
+          },
+          {
+            "id": "budget_discuss",
+            "text": "To discuss",
+            "icon": ""
+          }
+        ]
+      },
+      "contact_form": {
+        "message": "Perfect! To finalize your request, I need a few details:",
+        "fields": {
+          "name": {
+            "label": "Full name *",
+            "placeholder": "Your first and last name",
+            "type": "text",
+            "required": true
+          },
+          "email": {
+            "label": "Professional email *",
+            "placeholder": "your.email@company.com",
+            "type": "email",
+            "required": true
+          },
+          "phone": {
+            "label": "Phone",
+            "placeholder": "+33 1 23 45 67 89",
+            "type": "tel",
+            "required": false
+          },
+          "company": {
+            "label": "Company",
+            "placeholder": "Your company name",
+            "type": "text",
+            "required": false
+          }
+        },
+        "consent": {
+          "text": "I agree to be contacted by Omega Research & Consulting regarding my request and I have read the",
+          "privacy_link": "Privacy Policy",
+          "required": true
+        },
+        "actions": [
+          {
+            "id": "submit_lead",
+            "text": "Send my request",
+            "icon": ""
+          },
+          {
+            "id": "back_to_budget",
+            "text": "Back",
+            "icon": ""
+          }
+        ]
+      },
+      "confirmation": {
+        "message": "Thank you! Your request has been sent successfully. Our team will contact you within 24h.",
+        "actions": [
+          {
+            "id": "close_chat",
+            "text": "Close",
+            "icon": ""
+          },
+          {
+            "id": "new_journey",
+            "text": "New journey",
+            "icon": ""
+          }
+        ]
+      }
+    }
+  }
+}
