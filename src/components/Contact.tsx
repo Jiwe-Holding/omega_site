@@ -36,10 +36,8 @@ const Contact = () => {
         sender_name: EMAIL_TEMPLATES.CONTACT.sender_name,
         organisation: formData.company || "Non spécifié",
         sujet: `${EMAIL_TEMPLATES.CONTACT.sujet_prefix} - ${formData.subject || 'Demande générale'}`,
-        message: `
-        
-                                              
-             🏢 OMEGA RESEARCH & CONSULTING                
+        message: `                                      
+            🏢 OMEGA RESEARCH & CONSULTING                
                                                 
                     
             👤 INFORMATIONS DU PROSPECT               
@@ -50,18 +48,18 @@ const Contact = () => {
               Nom      : ${formData.name}
               Email    : ${formData.email}
               Tél      : ${formData.phone || 'Non renseigné'}
-             ─────────────────────────────
+        
             
             🏢 Entreprise  
             
               Société  : ${formData.company || 'Non spécifiée'}
               Type     : ${formData.companyType || 'Non spécifié'}
               Pays     : ${formData.country || 'Non spécifié'}
-              ────────────────────────────
+     
 
        
             💬 MESSAGE DU PROSPECT                      
-            ──────────────────────────────
+             ──────────────────────────────
 
               ${formData.message}
 
@@ -98,8 +96,8 @@ const Contact = () => {
         body: JSON.stringify(emailData)
       });
 
-      if (!response.ok) {
-          console.log('HTTP error! status:', response.json());
+      if (response.status !== 200) {
+          console.log('----HTTP error! status:', response.json());
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
