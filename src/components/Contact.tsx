@@ -104,6 +104,7 @@ const Contact = () => {
       });
 
       if (!response.ok) {
+          console.log('HTTP error! status:', response.json());
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 

@@ -16,7 +16,7 @@ export const EMAIL_TEMPLATES = {
     sujet_prefix: "Lead Chatbot",
   },
   QUOTE: {
-    sender_name: "JIWE_SITE", 
+    sender_name: "JIWE_SITE",
     sujet_prefix: "Demande de devis",
   }
 };
