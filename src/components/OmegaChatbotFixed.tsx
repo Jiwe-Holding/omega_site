@@ -573,26 +573,242 @@ const OmegaChatbotFixed = () => {
         organisation: contactInfo.company || "Non spécifié",
         sujet: `${EMAIL_TEMPLATES.CHATBOT.sujet_prefix} - ${subject}`,
         message: `
-          CHATBOT LEAD - Détails du parcours utilisateur
-          
-          Informations de contact:
-          Nom complet: ${contactInfo.name}
-          Email: ${contactInfo.email}
-          Téléphone: ${contactInfo.phone || 'Non fourni'}
-          Entreprise: ${contactInfo.company || 'Non fournie'}
-          
-          Parcours chatbot:
-          Profil: ${state.userJourney.profile || 'Non spécifié'}
-          Objectif: ${state.userJourney.goal || 'Non spécifié'}
-          Services: ${state.userJourney.services?.join(', ') || 'Non spécifié'}
-          Méthode: ${state.userJourney.method || 'Non spécifié'}
-          Taille d'échantillon: ${state.userJourney.sampleSize || 'Non spécifié'}
-          Délai: ${state.userJourney.timeline || 'Non spécifié'}
-          Budget: ${state.userJourney.budget || 'Non spécifié'}
-          
-          Consentement: ${consent ? 'Oui' : 'Non'}
-          Langue: ${state.currentLanguage}
-          Timestamp: ${new Date().toISOString()}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouveau Lead Chatbot - Omega Research & Consulting</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 8px 0 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .info-section {
+            background-color: #f0fdf4;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 4px solid #10b981;
+        }
+        .info-section h3 {
+            color: #059669;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 2px solid #d1fae5;
+            padding-bottom: 8px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #047857;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .info-value {
+            color: #064e3b;
+            font-size: 15px;
+        }
+        .journey-section {
+            background-color: #ffffff;
+            border: 1px solid #d1fae5;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .journey-section h3 {
+            color: #059669;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .journey-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .journey-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .journey-label {
+            font-weight: 600;
+            color: #047857;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .journey-value {
+            color: #064e3b;
+            font-size: 15px;
+        }
+        .services-list {
+            background-color: #f0fdf4;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+        .footer {
+            background-color: #f0fdf4;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #d1fae5;
+        }
+        .footer p {
+            margin: 0;
+            color: #047857;
+            font-size: 14px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #10b981;
+            color: white;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        @media (max-width: 600px) {
+            .info-grid, .journey-grid {
+                grid-template-columns: 1fr;
+            }
+            .content {
+                padding: 20px 15px;
+            }
+            .header {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>🤖 Nouveau Lead Chatbot</h1>
+            <p>Omega Research & Consulting</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-section">
+                <h3>👤 Informations de contact</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Nom complet</div>
+                        <div class="info-value">${contactInfo.name}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">${contactInfo.email}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Téléphone</div>
+                        <div class="info-value">${contactInfo.phone || 'Non fourni'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Entreprise</div>
+                        <div class="info-value">${contactInfo.company || 'Non fournie'}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="journey-section">
+                <h3>🎯 Parcours utilisateur</h3>
+                <div class="journey-grid">
+                    <div class="journey-item">
+                        <div class="journey-label">Profil professionnel</div>
+                        <div class="journey-value">${state.userJourney.profile ? state.userJourney.profile.replace('profile_', '').replace('_', ' ') : 'Non spécifié'}</div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-label">Objectif principal</div>
+                        <div class="journey-value">${state.userJourney.goal ? state.userJourney.goal.replace('goal_', '').replace('_', ' ') : 'Non spécifié'}</div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-label">Services sélectionnés</div>
+                        <div class="journey-value">
+                            ${state.userJourney.services && state.userJourney.services.length > 0 
+                                ? `<div class="services-list">${state.userJourney.services.map(service => service.replace('service_', '').replace('_', ' ')).join(', ')}</div>`
+                                : 'Non spécifié'
+                            }
+                        </div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-label">Méthode de recherche</div>
+                        <div class="journey-value">${state.userJourney.method ? state.userJourney.method.replace('method_', '').replace('_', ' ') : 'Non spécifié'}</div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-label">Taille d'échantillon</div>
+                        <div class="journey-value">${state.userJourney.sampleSize ? state.userJourney.sampleSize.replace('sample_', '').replace('_', ' ') : 'Non spécifié'}</div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-label">Délai souhaité</div>
+                        <div class="journey-value">${state.userJourney.timeline ? state.userJourney.timeline.replace('timeline_', '').replace('_', ' ') : 'Non spécifié'}</div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-label">Budget approximatif</div>
+                        <div class="journey-value">${state.userJourney.budget ? state.userJourney.budget.replace('budget_', '').replace('_', ' ') : 'Non spécifié'}</div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-label">Langue</div>
+                        <div class="journey-value">${state.currentLanguage.toUpperCase()} <span class="badge">${state.currentLanguage === 'fr' ? 'Français' : 'English'}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>✅ Consentement: ${consent ? 'Oui' : 'Non'}</p>
+            <p>📅 Date: ${new Date().toLocaleDateString('fr-FR', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            })}</p>
+            <p>Cette demande a été générée automatiquement par le chatbot Omega</p>
+        </div>
+    </div>
+</body>
+</html>
         `,
         noms: [firstName, lastName],
         extra_json: {

@@ -37,16 +37,189 @@ const Contact = () => {
         organisation: formData.company || "Non spécifié",
         sujet: `${EMAIL_TEMPLATES.CONTACT.sujet_prefix} - ${formData.subject || 'Demande générale'}`,
         message: `
-          Nom complet: ${formData.name}
-          Email: ${formData.email}
-          Compagnie: ${formData.company || 'Non spécifié'}
-          Type d'entreprise: ${formData.companyType || 'Non spécifié'}
-          Téléphone: ${formData.phone || 'Non spécifié'}
-          Pays: ${formData.country || 'Non spécifié'}
-          Type de projet: ${formData.subject || 'Non spécifié'}
-          
-          Message:
-          ${formData.message}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle demande de contact - Omega Research & Consulting</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 8px 0 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .info-section {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .info-section h3 {
+            color: #1e40af;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .info-value {
+            color: #1e293b;
+            font-size: 15px;
+        }
+        .message-section {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .message-section h3 {
+            color: #1e40af;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .message-content {
+            background-color: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        .footer {
+            background-color: #f8fafc;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        .footer p {
+            margin: 0;
+            color: #64748b;
+            font-size: 14px;
+        }
+        .logo {
+            max-width: 120px;
+            height: auto;
+        }
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .content {
+                padding: 20px 15px;
+            }
+            .header {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Nouvelle demande de contact</h1>
+            <p>Omega Research & Consulting</p>
+        </div>
+        
+        <div class="content">
+            <div class="info-section">
+                <h3>📋 Informations du contact</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Nom complet</div>
+                        <div class="info-value">${formData.name}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">${formData.email}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Compagnie</div>
+                        <div class="info-value">${formData.company || 'Non spécifié'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Type d'entreprise</div>
+                        <div class="info-value">${formData.companyType || 'Non spécifié'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Téléphone</div>
+                        <div class="info-value">${formData.phone || 'Non spécifié'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Pays</div>
+                        <div class="info-value">${formData.country || 'Non spécifié'}</div>
+                    </div>
+                 
+                </div>
+            </div>
+            
+            <div class="message-section">
+                <h3>💬 Message</h3>
+                <div class="message-content">
+                    ${formData.message}
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Cette demande a été envoyée depuis le site web Omega Research & Consulting</p>
+            <p>Date: ${new Date().toLocaleDateString('fr-FR', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            })}</p>
+        </div>
+    </div>
+</body>
+</html>
         `,
         noms: [firstName, lastName],
         extra_json: {
